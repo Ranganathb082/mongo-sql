@@ -1,0 +1,113 @@
+1	select the restaurant Id, name and grades for those restaurants which returns 0 as a remainder after dividing the score by 7.
+
+db.address.find(
+  { "grades.score": { $mod: [7, 0] } },
+  { restaurant_id: 1, name: 1, grades: 1 }
+);
+
+[
+  {
+    _id: ObjectId("650b4208f68f9c79aed08840"),
+    grades: [
+      { date: { '$date': 1393804800000 }, grade: 'A', score: 2 },
+      { date: { '$date': 1378857600000 }, grade: 'A', score: 6 },
+      { date: { '$date': 1358985600000 }, grade: 'A', score: 10 },
+      { date: { '$date': 1322006400000 }, grade: 'A', score: 9 },
+      { date: { '$date': 1299715200000 }, grade: 'B', score: 14 }
+    ],
+    name: 'Morris Park Bake Shop',
+    restaurant_id: '30075445'
+  },
+  {
+    _id: ObjectId("650b42d6f68f9c79aed08845"),
+    grades: [
+      { date: { '$date': 1402358400000 }, grade: 'A', score: 5 },
+      { date: { '$date': 1370390400000 }, grade: 'A', score: 7 },
+      { date: { '$date': 1334275200000 }, grade: 'A', score: 12 },
+      { date: { '$date': 1318377600000 }, grade: 'A', score: 12 }
+    ],
+    name: 'Riviera Caterer',
+    restaurant_id: '40356018'
+  },
+  {
+    _id: ObjectId("650b437df68f9c79aed08848"),
+    grades: [
+      { date: { '$date': 1416009600000 }, grade: 'Z', score: 38 },
+      { date: { '$date': 1398988800000 }, grade: 'A', score: 10 },
+      { date: { '$date': 1362182400000 }, grade: 'A', score: 7 },
+      { date: { '$date': 1328832000000 }, grade: 'A', score: 13 }
+    ],
+    name: 'Brunos On The Boulevard',
+    restaurant_id: '40356151'
+  },
+  {
+    _id: ObjectId("650b45c3f68f9c79aed08852"),
+    grades: [
+      { date: { '$date': 1410825600000 }, grade: 'B', score: 21 },
+      { date: { '$date': 1377648000000 }, grade: 'A', score: 7 },
+      { date: { '$date': 1364860800000 }, grade: 'C', score: 56 },
+      { date: { '$date': 1344988800000 }, grade: 'B', score: 27 },
+      { date: { '$date': 1332892800000 }, grade: 'B', score: 27 }
+    ],
+    name: 'May May Kitchen',
+    restaurant_id: '40358429'
+  },
+  {
+    _id: ObjectId("650b45fef68f9c79aed08853"),
+    grades: [
+      { date: { '$date': 1399420800000 }, grade: 'A', score: 3 },
+      { date: { '$date': 1367539200000 }, grade: 'A', score: 4 },
+      { date: { '$date': 1335744000000 }, grade: 'A', score: 6 },
+      { date: { '$date': 1324944000000 }, grade: 'A', score: 0 }
+    ],
+    name: '1 East 66Th Street Kitchen',
+    restaurant_id: '40359480'
+  },
+  {
+    _id: ObjectId("650b45fef68f9c79aed08854"),
+    grades: [
+      { date: { '$date': 1415577600000 }, grade: 'A', score: 11 },
+      { date: { '$date': 1381363200000 }, grade: 'A', score: 13 },
+      { date: { '$date': 1349308800000 }, grade: 'A', score: 7 },
+      { date: { '$date': 1337558400000 }, grade: 'A', score: 9 },
+      { date: { '$date': 1325203200000 }, grade: 'B', score: 19 }
+    ],
+    name: 'Seuda Foods',
+    restaurant_id: '40360045'
+  },
+  {
+    _id: ObjectId("650b4692f68f9c79aed08859"),
+    grades: [
+      { date: { '$date': 1408147200000 }, grade: 'A', score: 12 },
+      { date: { '$date': 1377561600000 }, grade: 'A', score: 9 },
+      { date: { '$date': 1348099200000 }, grade: 'A', score: 7 },
+      { date: { '$date': 1317254400000 }, grade: 'A', score: 10 }
+    ],
+    name: "Sal'S Deli",
+    restaurant_id: '40361618'
+  },
+  {
+    _id: ObjectId("650b46b1f68f9c79aed0885b"),
+    grades: [
+      { date: { '$date': 1395187200000 }, grade: 'A', score: 3 },
+      { date: { '$date': 1363132800000 }, grade: 'A', score: 12 },
+      { date: { '$date': 1332806400000 }, grade: 'A', score: 8 },
+      { date: { '$date': 1301961600000 }, grade: 'A', score: 7 }
+    ],
+    name: "Steve Chu'S Deli & Grocery",
+    restaurant_id: '40361998'
+  },
+  {
+    _id: ObjectId("650b46b1f68f9c79aed0885c"),
+    grades: [
+      { date: { '$date': 1410739200000 }, grade: 'A', score: 10 },
+      { date: { '$date': 1393891200000 }, grade: 'A', score: 13 },
+      { date: { '$date': 1374105600000 }, grade: 'A', score: 13 },
+      { date: { '$date': 1357689600000 }, grade: 'A', score: 11 },
+      { date: { '$date': 1334016000000 }, grade: 'A', score: 10 },
+      { date: { '$date': 1321315200000 }, grade: 'A', score: 7 }
+    ],
+    name: "Harriet'S Kitchen",
+    restaurant_id: '40362098'
+  }
+]

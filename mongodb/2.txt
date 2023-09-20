@@ -1,0 +1,14 @@
+2  find the restaurant name, borough, longitude and attitude and cuisine for those restaurants which contains 'mon' as three letters somewhere in its name
+
+
+db.address.find( { borough: { $regex: /mon/i } }, { name: 1, borough: 1, "address.coord": 1, cuisine: 1 } )
+
+[
+  {
+    _id: ObjectId("650b4208f68f9c79aed08840"),
+    address: { coord: [ -73.856077, 40.848447 ] },
+    borough: 'comon',
+    cuisine: 'Bakery',
+    name: 'Morris Park Bake Shop'
+  }
+]

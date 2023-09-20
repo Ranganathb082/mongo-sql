@@ -1,0 +1,44 @@
+6	find the average score for each restaurant.
+
+db.address.aggregate([
+  {
+    $unwind: "$grades" // Unwind the grades array to create a separate document for each grade
+  },
+  {
+    $group: {
+      _id: "$restaurant_id", // Group by restaurant_id
+      avgScore: { $avg: "$grades.score" } // Calculate the average score for each restaurant
+    }
+  },
+  {
+    $project: {
+      _id: 0, // Exclude the _id field from the output
+      restaurant_id: "$_id",
+      avgScore: 1 // Include the avgScore field in the output
+    }
+  }
+]);
+
+
+[
+  { avgScore: 8.2, restaurant_id: '30075445' },
+  { avgScore: 9.6, restaurant_id: '40356649' },
+  { avgScore: 10.666666666666666, restaurant_id: '40362098' },
+  { avgScore: 9, restaurant_id: '40356018' },
+  { avgScore: 27.6, restaurant_id: '40358429' },
+  { avgScore: 11.8, restaurant_id: '40360045' },
+  { avgScore: 10.5, restaurant_id: '40356442' },
+  { avgScore: 16.75, restaurant_id: '40362264' },
+  { avgScore: 13.75, restaurant_id: '30112340' },
+  { avgScore: 17.75, restaurant_id: '40356068' },
+  { avgScore: 10.666666666666666, restaurant_id: '40361322' },
+  { avgScore: 8.25, restaurant_id: '40356731' },
+  { avgScore: 12.2, restaurant_id: '40361521' },
+  { avgScore: 10, restaurant_id: '40356483' },
+  { avgScore: 9.25, restaurant_id: '40361606' },
+  { avgScore: 3.25, restaurant_id: '40359480' },
+  { avgScore: 5.666666666666667, restaurant_id: '40361390' },
+  { avgScore: 9.5, restaurant_id: '40361618' },
+  { avgScore: 9.25, restaurant_id: '40361708' },
+  { avgScore: 3.5, restaurant_id: '40357437' }
+]

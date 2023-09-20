@@ -1,0 +1,18 @@
+8 find the count of restaurants that received a grade of 'A' for each cuisine.
+
+
+db.address.aggregate([
+  { $unwind: "$grades" },  // Unwind the grades array
+  { $match: { "grades.grade": "A" } },  // Match only grades with 'A'
+  { $group: { _id: "$cuisine", count: { $sum: 1 } } }  // Group and count by cuisine
+])
+
+  { _id: 'Hamburgers', count: 3 },
+  { _id: 'Ice Cream, Gelato, Yogurt, Ices', count: 7 },
+  { _id: 'Delicatessen', count: 21 },
+  { _id: 'Jewish/Kosher', count: 10 },
+  { _id: 'American ', count: 33 },
+  { _id: 'Chinese', count: 1 },
+  { _id: 'Bakery', count: 4 },
+  { _id: 'Chicken', count: 6 },
+  { _id: 'Irish', count: 4 }
