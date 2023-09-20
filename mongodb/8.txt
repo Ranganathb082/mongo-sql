@@ -7,6 +7,12 @@ db.address.aggregate([
   { $group: { _id: "$cuisine", count: { $sum: 1 } } }  // Group and count by cuisine
 ])
 
+db.address.aggregate([
+  { $unwind: "$grades" }, 
+  { $match: { "grades.grade": "A" } },  
+  { $group: { _id: "$cuisine", count: { $sum: 1 } } }
+])
+
   { _id: 'Hamburgers', count: 3 },
   { _id: 'Ice Cream, Gelato, Yogurt, Ices', count: 7 },
   { _id: 'Delicatessen', count: 21 },

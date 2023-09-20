@@ -2,20 +2,13 @@
 
 UPDATE ORDERS SET ORD_DATE="2012-10-10" WHERE ORD_NUM = "1003";
 
-SELECT 
-    ORD_NUM,
-    ORD_AMOUNT AS "purch_amt",
-    ORD_DATE,
-    CUST_CODE,
-    AGENT_CODE
-FROM 
-    ORDERS
-WHERE 
-    ORD_AMOUNT > (
-        SELECT AVG(ORD_AMOUNT)
-        FROM ORDERS
-        WHERE ORD_DATE = '2012-10-10'
-    );
+SELECT ORD_NUM, ORD_AMOUNT AS "purch_amt",
+    ORD_DATE, CUST_CODE, AGENT_CODE
+    FROM ORDERS
+    WHERE ORD_AMOUNT > (
+    SELECT AVG(ORD_AMOUNT) FROM ORDERS
+    WHERE ORD_DATE = '2012-10-10'
+);
 
 +---------+-----------+------------+-----------+------------+
 | ORD_NUM | purch_amt | ORD_DATE   | CUST_CODE | AGENT_CODE |

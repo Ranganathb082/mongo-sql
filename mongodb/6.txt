@@ -19,6 +19,25 @@ db.address.aggregate([
   }
 ]);
 
+db.address.aggregate([
+  {
+    $unwind: "$grades" 
+  },
+  {
+    $group: {
+      _id: "$restaurant_id", 
+      avgScore: { $avg: "$grades.score" } 
+    }
+  },
+  {
+    $project: {
+      _id: 0, 
+      restaurant_id: "$_id",
+      avgScore: 1 
+    }
+  }
+]);
+
 
 [
   { avgScore: 8.2, restaurant_id: '30075445' },
